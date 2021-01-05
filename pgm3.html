@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 3</title>
+    <script type = "text/javascript">
+    function animate(){
+        //called when the page is loaded
+        //gets hte font size of HTML elem
+        var val = window.getComputedStyle(document.getElementById("text")).fontSize;
+        var fontSize = parseInt(val);
+        //two states
+        var states = "growing";
+        //interval of 100ms -> invoke 
+        var timer = setInterval(textanimate,100);
+
+
+    function textanimate(){
+        //initially the text grows
+        if(states == 'growing'){
+            fontSize++;
+            //chenge the content
+            document.getElementById("text").innerHTML = 'TEXT-GROWING';
+            document.getElementById("text").style.color = "red";
+            document.getElementById("text").style.fontSize = fontSize+"pt";
+        }
+        if(states == 'shrinking'){
+            fontSize--;
+            document.getElementById("text").innerHTML = "TEXT-SHRINKING";
+            document.getElementById("text").style.color = "blue";
+            document.getElementById("text").style.fontSize = fontSize+"pt";
+        }
+        if(fontSize === 50){
+            //stop 
+            //change he state
+            states = "shrinking";
+        }
+    }
+
+    }
+    </script>
+</head>
+<body onload = "animate()">
+    <h1 style = "text-align: center;">Experiment to inc & dec the text size</h1>"
+    <p style="text-align:center;" id = "text"></p>
+</body>
+</html>
