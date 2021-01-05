@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pgm 4</title>
+</head>
+<body>
+    <h1>Find the left most & reverse a number</h1>
+    <input type="text" name = "val" id = "val" placeholder="Enter the string or digits">
+    <input type="button" value="submit" onclick="validate()">
+
+</body>
+<script type="text/javascript">
+    function validate(){
+        var inp = document.getElementById('val').value;
+
+        if(isNaN(inp)){
+            findVowel(inp);
+        }else{
+            findReverse(inp);
+        }
+    }
+    function findReverse(inp){
+        var num = parseInt(inp);
+        var temp = num;
+        var rem = 0;
+        var rev = 0;
+
+        while(num > 0){
+            rem = num%10;
+            rev = rev*10+rem;
+            num = parseInt(num/10);
+        }
+        alert("Number"+temp+"\nReverse Order:"+rev);
+    }
+    function findVowel(inp){
+        var str = inp.toLowerCase();
+        var pos = 0;
+        var ch = "";
+
+        for(var i = 0; i < str.length; i++){
+            ch = str.charAt(i);
+            if(ch == "a" || ch == "e" || ch == "i" || ch == "o" || ch == "u"){
+                pos = i+1;
+                break;
+            }
+        }
+
+        if(pos == 0)
+            alert('Vowel NOT found');
+            else{
+                alert('Position of the leftmost vowel is'+pos);
+            }
+    }
+</script>
+</html>
